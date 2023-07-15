@@ -2,6 +2,7 @@ let rounds = 0;
 const score = [0, 0];
 const scoreDOM = document.querySelector(".score");
 const messageDOM = document.querySelector(".message");
+const roundsDOM = document.querySelector(".rounds");
 
 function getComputerChoice() {
     switch(Math.floor(Math.random()*3)) {
@@ -42,22 +43,25 @@ function onClick(playerChoice = "rock") {
     }
 
     rounds++;
+    roundsDOM.textContent = `played ${rounds}/5`
     let computerChoice = getComputerChoice();
     result = playRound(playerChoice, computerChoice);
     
     switch (result) {
         case 0:
             score[0]++;
-            messageDOM.textContent = `${playerChoice} beats ${computerChoice}!!`;
+            messageDOM.textContent = `Your ${playerChoice} beats da compooter's ${computerChoice}!!`;
             break;
         case 1:
             score[1]++;
-            messageDOM.textContent = `${playerChoice} gets beaten by ${computerChoice} :(`;
+            messageDOM.textContent = `Your ${playerChoice} gets beaten by the computer's ${computerChoice} :(`;
             break;
         case 2:
-            messageDOM.textContent = `${playerChoice} and ${computerChoice} are samesies`;
+            messageDOM.textContent = `Your ${playerChoice} and the computer's ${computerChoice} are samesies`;
             break;
     }
+    messageDOM.innerHTML = messageDOM.innerHTML.replace(`${playerChoice}`, `<u>${playerChoice}</u>`);
+    messageDOM.innerHTML = messageDOM.innerHTML.replace(`${computerChoice}`, `<u>${computerChoice}</u>`);
     scoreDOM.textContent = `Score - ${score[0]} : ${score[1]}`;
 
     if (rounds == 5) {
@@ -72,11 +76,14 @@ function endGame() {
     } else if (score [0] < score[1]) {
         endMsg.textContent = `LAWL get rekt`;
     } else {
-        endMsg.textContent = `hmm, it's a tie. play again?`;
+        endMsg.textContent = `hmm, it's a tie`;
     }
     scoreDOM.parentNode.appendChild(endMsg);
 
-    // TODO play again button
+    const playAgain = document.createElement("button");
+    playAgain.textContent = "play again?";
+    playAgain.onclick = () => location.reload();
+    scoreDOM.parentNode.appendChild(playAgain);
 }
 
 const rockBtn = document.querySelector("#rock");
