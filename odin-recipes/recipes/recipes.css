@@ -1,0 +1,31 @@
+body {
+    background-color: hsl(210, 8%, 50%);
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+h1 {
+    font-size: 48px;
+    text-align: center;
+}
+
+h2 {
+    padding-bottom: 0%;
+    margin-bottom: -10px;
+}
+
+img {
+    height: 600px;
+}
+
+figure img,
+figure figcaption {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgb(20, 20, 20);
+    font-style: italic;
+    text-align: center;
+}
+
+
