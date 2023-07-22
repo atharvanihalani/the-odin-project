@@ -11,7 +11,7 @@ header {
     align-items: center;
 }
 
-img.header {
+header img {
     height: 60px;
     width: auto;
 }
@@ -21,11 +21,13 @@ img.header {
     gap: 24px;
 }
 
-
 .content {
     display: flex;
     flex-direction: column;
 }
+
+
+/* MAST */
 
 .mast {
     background-image: url('./imgs/group-pic.jpeg');
@@ -48,16 +50,12 @@ img.header {
     padding: 12px;
     max-width: 1100px;
     text-align: center;
-    /* justify-content: center; */
 }
-
-
 
 header,
 .mast {
-    padding: 0 256px;
+    padding: 0 15%;
 }
-
 
 .mast h1 {
     font-size: 72px;
@@ -67,7 +65,7 @@ header,
 
 .mast p {
     font-size: 30px;
-    color: rgb(231, 231, 231);
+    color: hsl(0, 0%, 91%);
 }
 
 .mast button {
@@ -76,19 +74,141 @@ header,
     background-color: rgb(231, 231, 231);
     border-radius: 4px;
 }
+
 .mast button:hover {
-    background-color: darkblue;
-    color: lightyellow;
+    background-color: hsl(228, 26%, 19%);
+    color: whitesmoke;
 }
+
+
+/* DEETS */
+
+.deets {
+    background-color: hsl(228, 26%, 19%);
+}
+
+.deets h1 {
+    text-align: center;
+    font-size: 56px;
+    color: hsl(47, 100%, 58%);
+}
+
+.deets ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.deets li {
+    display: flex;
+    width: 70%;
+    align-items: center;
+}
+
+.deets .odd-li {
+    justify-content: flex-start;
+}
+.deets .even-li {
+    justify-content: flex-end;
+}
+
+.deets img {
+    height: 250px;
+    width: auto;
+    border-radius: 4px;
+    border-color:  hsl(214, 9%, 52%);
+    border-width: 8px;
+    border-style: double;
+    
+    animation-name: reversegrow;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+.deets img:hover {
+    animation-name: grow;
+    animation-duration: 0.7s;
+    animation-fill-mode: forwards;
+}
+
+.deets p {
+    color: hsl(0, 0%, 91%);
+    font-size: 30px;
+}
+
+@keyframes grow {
+    from {
+        scale: 100%;
+        border-color: hsl(214, 9%, 52%);
+    }
+    to {
+        scale: 120%;
+        border-color: hsl(47, 100%, 58%);
+    }
+}
+
+@keyframes reversegrow {
+    from {
+        scale: 120%;
+        border-color: hsl(47, 100%, 58%);
+    }
+    to {
+        scale: 100%;
+        border-color: hsl(214, 9%, 52%);
+    }
+}
+
+
+/* QUOTES */
+
+.quotes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 15%;
+    background-color:hsl(209, 35%, 76%);
+    gap: 0 96px;
+}
+
+.quotes .melon {
+    max-width: 70%;
+}
+
+.quotes .boys {
+    display: flex;
+    align-self: stretch;
+    justify-content: space-between;
+    padding: 24px 72px;
+}
+
+.quotes figure {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+
+.quotes blockquote {
+    font-size: 30px;
+    color: rgb(49, 49, 49);
+    font-style: italic;
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+}
+
+.quotes figcaption {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
 
 ul {
     list-style: none;
     padding: 0px;
 }
 
-img {
-    width: 300px;
-}
 
 a {
     text-decoration: none;
