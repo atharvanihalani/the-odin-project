@@ -1,14 +1,95 @@
 body {
     display: flex;
     flex-direction: column;
+    margin: 0;
 }
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: hsl(213, 44%, 85%);
+    align-items: center;
+}
+
+img.header {
+    height: 60px;
+    width: auto;
+}
+
+.right ul {
+    display: flex;
+    gap: 24px;
+}
+
 
 .content {
     display: flex;
     flex-direction: column;
 }
 
+.mast {
+    background-image: url('./imgs/group-pic.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mast .text-container {
+    background-color: hsla(233, 13%, 37%, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 16px;
+    padding: 12px;
+    max-width: 1100px;
+    text-align: center;
+    /* justify-content: center; */
+}
+
+
+
+header,
+.mast {
+    padding: 0 256px;
+}
+
+
+.mast h1 {
+    font-size: 72px;
+    margin: 8px 0 0 0;
+    color: hsl(47, 100%, 58%);
+}
+
+.mast p {
+    font-size: 30px;
+    color: rgb(231, 231, 231);
+}
+
+.mast button {
+    font-size: 24px;
+    padding: 8px 16px;
+    background-color: rgb(231, 231, 231);
+    border-radius: 4px;
+}
+.mast button:hover {
+    background-color: darkblue;
+    color: lightyellow;
+}
+
+ul {
+    list-style: none;
+    padding: 0px;
+}
+
 img {
     width: 300px;
 }
 
+a {
+    text-decoration: none;
+}
