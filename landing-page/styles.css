@@ -4,16 +4,30 @@ body {
     margin: 0;
 }
 
+ul {
+    list-style: none;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
 header {
     display: flex;
     justify-content: space-between;
     background-color: hsl(213, 44%, 85%);
     align-items: center;
+    height: 80px;
 }
 
 header img {
     height: 60px;
     width: auto;
+}
+
+header a {
+    font-size: 18px;
 }
 
 .right ul {
@@ -27,6 +41,7 @@ header img {
 }
 
 
+
 /* MAST */
 
 .mast {
@@ -35,11 +50,15 @@ header img {
     background-size: cover;
     background-position: center;
     height: 600px;
-    
+}
+
+.mast,
+.bottom {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 
 .mast .text-container {
     background-color: hsla(233, 13%, 37%, 0.7);
@@ -48,7 +67,7 @@ header img {
     align-items: center;
     border-radius: 16px;
     padding: 12px;
-    max-width: 1100px;
+    max-width: 950px;
     text-align: center;
 }
 
@@ -58,18 +77,18 @@ header,
 }
 
 .mast h1 {
-    font-size: 72px;
+    font-size: 54px;
     margin: 8px 0 0 0;
     color: hsl(47, 100%, 58%);
 }
 
 .mast p {
-    font-size: 30px;
+    font-size: 22px;
     color: hsl(0, 0%, 91%);
 }
 
 .mast button {
-    font-size: 24px;
+    font-size: 20px;
     padding: 8px 16px;
     background-color: rgb(231, 231, 231);
     border-radius: 4px;
@@ -89,7 +108,7 @@ header,
 
 .deets h1 {
     text-align: center;
-    font-size: 56px;
+    font-size: 48px;
     color: hsl(47, 100%, 58%);
 }
 
@@ -133,7 +152,7 @@ header,
 
 .deets p {
     color: hsl(0, 0%, 91%);
-    font-size: 30px;
+    font-size: 24px;
 }
 
 @keyframes grow {
@@ -187,9 +206,8 @@ header,
     align-items: flex-end;
 }
 
-
 .quotes blockquote {
-    font-size: 30px;
+    font-size: 28px;
     color: rgb(49, 49, 49);
     font-style: italic;
     font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -197,19 +215,94 @@ header,
 }
 
 .quotes figcaption {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 
+/* BOTTOM */
 
-ul {
-    list-style: none;
-    padding: 0px;
+.bottom .text-container {
+    background-color: hsl(233, 13%, 37%);
+    margin: 48px;
+    padding: 30px 48px;
+    border-radius: 12px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 160px;
+}
+
+.bottom p {
+    font-size: 24px;
+    color: whitesmoke;
+}
+
+.bottom h2 {
+    font-size: 40px;
+    margin: 0;
+    /* color: hsl(47, 100%, 58%); */
+    color: whitesmoke;
+}
+
+.bottom button {
+    font-size: 26px;
+    padding: 16px 26px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0);
+    color: whitesmoke;
+    border-color: hsl(47, 100%, 58%);
+    border-width: 4px;
+
+    animation-name: revbutton;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+}
+
+.bottom .right button:hover {
+    animation-name: button;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes button {
+    from {
+        background-color: rgba(255, 255, 255, 0);
+        font-size: 26px;
+        color: whitesmoke;
+    }
+    to {
+        background-color: hsl(47, 100%, 58%);
+        font-size: 30px;
+        color: black;
+    }
+}
+
+@keyframes revbutton {
+    from {
+        background-color: hsl(47, 100%, 58%);
+        font-size: 30px;
+        color: black;
+    }
+    to {
+        background-color: rgba(255, 255, 255, 0);
+        font-size: 26px;
+        color: whitesmoke;
+    }
 }
 
 
-a {
-    text-decoration: none;
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 80px;
+    background-color: hsl(228, 26%, 19%);
+    color: white;
+    font-size: 18px;
 }
+
+
