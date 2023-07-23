@@ -37,7 +37,7 @@ function playRound(playerChoice, computerChoice) {
     console.error("well, shit; smtn's goofy");
 }
 
-function onClick(playerChoice = "rock") {
+function onMouseOver(playerChoice) {
     if (rounds == 5) {
         return;
     }
@@ -87,8 +87,8 @@ function endGame() {
 }
 
 const rockBtn = document.querySelector("#rock");
-rockBtn.addEventListener('click', () => onClick(rockBtn.id));
+rockBtn.addEventListener('click', () => onMouseOver(rockBtn.id));
 const paperBtn = document.querySelector("#paper");
-paperBtn.addEventListener('click', () => onClick(paperBtn.id));
+paperBtn.addEventListener('click', () => onMouseOver(paperBtn.id));
 const scissorsBtn = document.querySelector("#scissors");
-scissorsBtn.addEventListener('click', () => onClick(scissorsBtn.id));
+scissorsBtn.addEventListener('click', () => onMouseOver(scissorsBtn.id));

@@ -1,0 +1,8 @@
+FUNCTIONALITY
+- pen (default)
+- dropdown menu for list of colors??
+- eraser
+- fill tool
+
+- change mouse icon when over canvas (depending on current 'mode')!!
+- two current colors at the bottom (press x to swap)??
