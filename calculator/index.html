@@ -4,48 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
+    <script src="./index.js" defer></script>
     <title>Document</title>
 </head>
 <body>
-    <section class="display">
-        <h1>TEST</h1>
+    <section id="display">
+        
     </section>
     <section class="input">
         <div class="the-rest">
             <div class="other-opers">
-                <button>AC</button>
-                <button>del</button>
-                <button>%</button>
+                <button onclick="clearDisplay()">AC</button>
+                <button onclick="backspace()">del</button>
+                <button onclick="appendOper('%')">%</button>
             </div>
             <div class="numbers">
                 <div class="_789">
-                    <button>7</button>
-                    <button>8</button>
-                    <button>9</button>
+                    <button onclick="appendNum('7')">7</button>
+                    <button onclick="appendNum('8')">8</button>
+                    <button onclick="appendNum('9')">9</button>
                 </div>
                 <div class="_456">
-                    <button>4</button>
-                    <button>5</button>
-                    <button>6</button>
+                    <button onclick="appendNum('4')">4</button>
+                    <button onclick="appendNum('5')">5</button>
+                    <button onclick="appendNum('6')">6</button>
 
                 </div>
                 <div class="_123">
-                    <button>1</button>
-                    <button>2</button>
-                    <button>3</button>
+                    <button onclick="appendNum('1')">1</button>
+                    <button onclick="appendNum('2')">2</button>
+                    <button onclick="appendNum('3')">3</button>
                 </div>
                 <div class="_0">
-                    <button>0</button>
+                    <button onclick="appendNum('0')">0</button>
                     <button>.</button>
                 </div>
             </div>
         </div>
         <div class="main-opers">
-            <button>÷</button>
-            <button>x</button>
-            <button>-</button>
-            <button>+</button>
-            <button>=</button>
+            <button onclick="appendOper('/')">÷</button>
+            <button onclick="appendOper('*')">x</button>
+            <button onclick="appendOper('-')">-</button>
+            <button onclick="appendOper('+')">+</button>
+            <button onclick="calculate()">=</button>
         </div>
     </section>
 </body>

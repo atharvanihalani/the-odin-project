@@ -1,0 +1,7 @@
+
+- type decimals
+- make pretty
+    - blinking caret
+
+
+
