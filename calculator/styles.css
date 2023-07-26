@@ -1,0 +1,14 @@
+.input,
+.other-opers,
+.numbers div {
+    display: flex;
+}
+
+
+
+.main-opers,
+.the-rest, 
+.numbers {
+    display: flex;
+    flex-direction: column;
+}
