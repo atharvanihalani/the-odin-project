@@ -1,7 +1,13 @@
 
 - type decimals
+- keyboard input
 - make pretty
-    - blinking caret
+    - blinking caret – number is tacked onto end
 
+CSSify
+buttons:
+    background color same as screen
+    razor thin neon? border
+    glowing blue font
 
 

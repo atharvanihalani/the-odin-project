@@ -4,11 +4,63 @@
     display: flex;
 }
 
-
-
+body,
 .main-opers,
 .the-rest, 
-.numbers {
+.numbers,
+#screen {
     display: flex;
     flex-direction: column;
+}
+
+body {
+    align-items: center;
+    font-family: 'Victor Mono', monospace;
+    background-color: black;
+}
+
+
+
+.input button {
+    font-size: 34px;
+    padding: 28px;
+    font-family: 'Victor Mono', monospace;
+    background-color: black;
+
+    color:#00c8ff;
+    text-shadow: 1px 1px 10px #00c8ff8e;
+    border: 1px solid #00c8ff;
+    box-shadow: 1px 1px 10px #00c8ff8e;
+}
+
+._789 *,
+._456 *,
+._123 *,
+._0 * {
+    flex-grow: 1;
+} 
+
+h1 {
+    font-size: 52px;
+    margin-top: 24px;
+    margin-bottom: 48px;
+    
+    color:#00c8ff;
+    text-shadow: 1px 1px 10px #00c8ff8e;
+}
+
+#screen {
+    min-height: 80px;
+    justify-content: space-between;
+    padding-bottom: 6px;
+    
+    color:#00c8ff;
+    text-shadow: 1px 1px 10px #00c8ff8e;
+}
+#display {
+    font-size: 42px;
+    align-self: flex-end;
+}
+#history {
+    font-size: 24px;
 }

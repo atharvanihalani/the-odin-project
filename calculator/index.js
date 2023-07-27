@@ -1,4 +1,6 @@
+const history = document.getElementById('history');
 const display = document.getElementById('display');
+
 let strA = '';
 let strB = '';
 let operator;
@@ -30,12 +32,17 @@ function calculate() {
             console.error("goofy operation");
     }
 
+    history.textContent = `${strA} ${operator} ${strB} =`
+
     strA = display.textContent;
     strB = '';
     operator = null;
 }
 
 function appendNum(n) {
+    if (history.textContent != '') {
+        history.textContent = '';
+    }
     if (operator == null) {
         strA += n;
         display.textContent = strA;
@@ -52,7 +59,8 @@ function appendOper(o) {
 
 
 
-function clearDisplay() {
+function clearScreen() {
+    history.textContent = '';
     display.textContent = '';
 
     strA = '';
