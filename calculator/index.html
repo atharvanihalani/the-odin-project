@@ -21,9 +21,9 @@
         <div class="input">
             <div class="the-rest">
                 <div class="other-opers">
-                    <button onclick="clearScreen()">AC</button>
+                    <button onclick="clearScreen()">A/C</button>
                     <button onclick="backspace()">del</button>
-                    <button onclick="appendOper('%')">%</button>
+                    <button onclick="plusMinus()">+/-</button>
                 </div>
                 <div class="numbers">
                     <div class="_789">
@@ -44,21 +44,21 @@
                     </div>
                     <div class="_0">
                         <button onclick="appendNum('0')">0</button>
-                        <button>.</button>
+                        <button onclick="appendNum('.')">.</button>
                     </div>
                 </div>
             </div>
             <div class="main-opers">
-                <button onclick="appendOper('/')">÷</button>
-                <button onclick="appendOper('*')">x</button>
-                <button onclick="appendOper('-')">-</button>
-                <button onclick="appendOper('+')">+</button>
+                <button onclick="appendOper('/', this)">÷</button>
+                <button onclick="appendOper('*', this)">x</button>
+                <button onclick="appendOper('-', this)">-</button>
+                <button onclick="appendOper('+', this)">+</button>
                 <button onclick="calculate()">=</button>
             </div>
         </div>
     </section>
     <footer>
-        <!-- plug github link / other projects -->
+        <a href="https://github.com/atharvanihalani"><img src="/img/github-mark-white.png" alt="github logo">atharvanihalani</a>
     </footer>
 </body>
 </html>

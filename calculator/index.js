@@ -3,7 +3,8 @@ const display = document.getElementById('display');
 
 let strA = '';
 let strB = '';
-let operator;
+let operator = [null, null]; // [value, button-ref]
+let pointToA = true;
 
 function calculate() {
     if (strB == '') {
@@ -12,49 +13,75 @@ function calculate() {
 
     let numA = +strA;
     let numB = +strB;
-    switch (operator) {
+    history.textContent = `${strA} ${operator[0]} ${strB} =`;
+    operator[1].classList.remove("active");
+
+    switch (operator[0]) {
         case '+':
-            display.textContent = add(numA, numB);
+            ans = add(numA, numB);
             break;
         case '-':
-            display.textContent = subtract(numA, numB); 
+            ans = subtract(numA, numB); 
             break;
         case '*':
-            display.textContent = multiply(numA, numB);
+            ans = multiply(numA, numB);
             break;
         case '/':
-            display.textContent = divide(numA, numB);
-            break;
-        case '%':
-            display.textContent = modulo(numA, numB);
+            if (numB == 0) {
+                history.textContent = "nice try";
+            }
+            ans = ''
             break;
         default:
             console.error("goofy operation");
     }
 
-    history.textContent = `${strA} ${operator} ${strB} =`
+    display.textContent = Math.round((ans + Number.EPSILON) * 100) / 100;
 
     strA = display.textContent;
     strB = '';
-    operator = null;
+    operator = [null, null];
+    pointToA = true;
 }
 
 function appendNum(n) {
     if (history.textContent != '') {
         history.textContent = '';
     }
-    if (operator == null) {
+    if (operator[0]) {
+        operator[1].classList.remove("active");
+    }
+
+    // mann, it'd be SM easier if JS had smtn like:
+    // strRn = (pointToA ? strA : strB);
+
+    if (pointToA) {
+        if (n == '.' && strA.includes(n)) {
+            return;
+        }
         strA += n;
         display.textContent = strA;
     } else {
+        if (n == '.' && strB.includes(n)) {
+            return;
+        }
         strB += n;
         display.textContent = strB;
     }
 }
 
-function appendOper(o) {
+function appendOper(oper, elt) {
+    if (strA == '') {
+        return;
+    }
+    if (operator[0]) {
+        operator[1].classList.remove("active");
+    }
     calculate();
-    operator = o;
+
+    operator = [oper, elt];
+    operator[1].classList.add("active");
+    pointToA = false;
 }
 
 
@@ -62,23 +89,40 @@ function appendOper(o) {
 function clearScreen() {
     history.textContent = '';
     display.textContent = '';
+    if (operator[0]) {
+        operator[1].classList.remove("active");
+    }
 
     strA = '';
     strB = '';
-    operator = null;
+    operator = [null, null];
+    pointToA = true;
 }
 
 function backspace() {
-    if (operator != null && strB == '') {
-        operator == null;
-        // deselect operator visually
-    } else if (operator != null) {
+    if (!pointToA && strB == '') {
+        operator[1].classList.remove("active");
+        operator == [null, null];
+    } else if (!pointToA) {
         strB = strB.slice(0, -1);
         display.textContent = display.textContent.slice(0, -1);
     } else {
         strA = strA.slice(0, -1);
         display.textContent = display.textContent.slice(0, -1);
     }
+}
+
+function plusMinus() {
+    strRn = [...display.textContent];
+    if (!strRn.length) {
+        return;
+    }
+
+    strRn[0] == '-' ? 
+        display.textContent = display.textContent.slice(1) : 
+        display.textContent = '-' + display.textContent;
+
+    pointToA ? strA = display.textContent : strB = display.textContent;
 }
 
 
@@ -96,13 +140,5 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    if (b == 0) {
-        console.error("ha ha, funny guy");
-        return;
-    }
     return a/b;
-}
-
-function modulo(a, b) {
-    return ((a % b) + b) % b;
 }
