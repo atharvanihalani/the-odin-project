@@ -100,6 +100,7 @@ function clearScreen() {
 }
 
 function backspace() {
+    history.textContent = '';
     if (!pointToA && strB == '') {
         operator[1].classList.remove("active");
         operator == [null, null];
@@ -113,6 +114,7 @@ function backspace() {
 }
 
 function plusMinus() {
+    history.textContent = '';
     strRn = [...display.textContent];
     if (!strRn.length) {
         return;

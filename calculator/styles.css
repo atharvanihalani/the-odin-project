@@ -33,10 +33,19 @@ footer {
     margin-top: auto;
     margin-bottom: 24px;
 }
+footer a {
+    display: flex;
+}
 footer a:link,
 footer a:visited {
     color: white;
+    text-decoration: none;
 }
+footer img {
+    width: 20px;
+    padding: 0 8px;
+}
+
 
 
 #screen {
