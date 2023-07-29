@@ -29,8 +29,10 @@ function calculate() {
         case '/':
             if (numB == 0) {
                 history.textContent = "nice try";
+                ans = ''
+                break;
             }
-            ans = ''
+            ans = divide(numA, numB)
             break;
         default:
             console.error("goofy operation");
