@@ -8,39 +8,47 @@
     <title>Document</title>
 </head>
 <body>
-    <section> 
-        <div>
-            <!--embed w relative size-->
+    <section class="main">
+        <figure id="logo-stamp">
             <img src="./img/logo.png" alt="brockhampton logo"> 
-            
-            <!-- flex position later -->
+        </figure>
+        
+        <div id="form-content">
             <form action="nowhere.in" method="post">
-                <ul>
-                    <li>
-                        <label for="first-name">First Name</label>
-                        <input type="text" name="first-name" id="first-name">
-                    </li>
-                    <li>
-                        <label for="last-name">Last Name</label>
-                        <input type="text" name="last-name" id="last-name">
-                    </li>
-                    <li>
-                        <label for="email">Email</label>
-                        <input type="email" name="email" id="email">
-                    </li>
-                    <li>
-                        <label for="fav-album">Favorite Album (only 3 correct answers)</label>
-                        <input type="text" name="fav-album" id="fav-album">
-                    </li>
-                    <li>
-                        <label for="password">Password</label>
-                        <input type="password" name="password" id="password">
-                    </li>
-                    <li>
-                        <label for="password-check">Confirm Password</label>
-                        <input type="password" name="password-check" id="password-check">
-                    </li>
-                </ul>
+                <div class="questions">
+                    <div class="left-col">
+                        <ul>
+                            <li>
+                                <label for="first-name">First Name: </label>
+                                <input type="text" name="first-name" id="first-name">
+                            </li>
+                            <li>
+                                <label for="email">Email: </label>
+                                <input type="email" name="email" id="email">
+                            </li>
+                            <li>
+                                <label for="password">Password: </label>
+                                <input type="password" name="password" id="password">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="right-col">
+                        <ul>
+                            <li>
+                                <label for="last-name">Last Name: </label>
+                                <input type="text" name="last-name" id="last-name">
+                            </li>
+                            <li>
+                                <label for="fav-album">Favorite Album: </label>
+                                <input type="text" name="fav-album" id="fav-album">
+                            </li>
+                            <li>
+                                <label for="password-check">Confirm Password: </label>
+                                <input type="password" name="password-check" id="password-check">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 <button type="submit">Submit</button>
             </form>
         </div>

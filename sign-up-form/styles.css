@@ -1,0 +1,53 @@
+body {
+    background-image: url(./img/placeholder.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+#logo-stamp{
+    position: relative;
+    margin: 0;
+    top: 40px;
+    z-index: 1;
+}
+#logo-stamp img {
+    width: 80px;
+}
+
+section.main {
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* filter: blur(); */
+}
+
+#form-content {
+    border: 2px solid black;
+    backdrop-filter: blur(20px);
+    background-color: rgba(0, 0, 0, 0.15);
+    padding: 45px;
+}
+#form-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+#form-content .questions {
+    display: flex;
+    
+}
+
+input:invalid {
+    border-color: red;
+}
+/* input:valid {
+    border-color: rgb(255, 208, 0);
+} */

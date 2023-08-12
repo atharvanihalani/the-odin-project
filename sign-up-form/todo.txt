@@ -11,3 +11,6 @@ Layout
     - button appears grey-ed ('yellow-ed'?) out if all entries not filled up; saturated color when valid
     - crackly energy effect on button hover
     - if valid entries, bright flash of white light + slowly fade to confirmation screen
+
+Sources
+    yellow bckg; https://www.sermoncentral.com/church-media-preaching-sermons/motion-background-video-loops/streaks-yellow-3577-detail
