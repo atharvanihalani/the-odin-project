@@ -1,16 +1,18 @@
 Layout
 - background fuzzy image (vibe – enter da backstage)
     - subtle border effects?
-- BH emblem 'stamped' on edge
 - input fields
-    - pulsing when selected + yellow glow when filled up
     - if selected, then deselected, show faint, dull red glow
     - real-time entry + password validation
-- "fav album (only 3 correct answers)
 - submit button
     - button appears grey-ed ('yellow-ed'?) out if all entries not filled up; saturated color when valid
     - crackly energy effect on button hover
     - if valid entries, bright flash of white light + slowly fade to confirmation screen
+
+
+- glow effect on pulsing input border
+- fix the layout order of textinputs
+
 
 Sources
     yellow bckg; https://www.sermoncentral.com/church-media-preaching-sermons/motion-background-video-loops/streaks-yellow-3577-detail

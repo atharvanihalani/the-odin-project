@@ -1,7 +1,9 @@
 body {
-    background-image: url(./img/placeholder.jpeg);
+    background-image: linear-gradient(hsl(228, 26%, 19%), hsl(228, 26%, 19%));
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
+    background-position: center;
 }
 
 ul {
@@ -32,7 +34,7 @@ section.main {
 #form-content {
     border: 2px solid black;
     backdrop-filter: blur(20px);
-    background-color: rgba(0, 0, 0, 0.15);
+    background-color: hsla(0, 0%, 0%, 0.15);
     padding: 45px;
 }
 #form-content form {
@@ -42,12 +44,41 @@ section.main {
 
 #form-content .questions {
     display: flex;
-    
+    gap: 40px;
 }
 
+.questions li {
+    margin: 16px 0;
+}
+.questions label {
+    color: whitesmoke;
+    font-size: 20px;
+}
+.questions input {
+    font-size: 20px;
+    padding: 4px;
+    border-style: solid;
+}
+
+input:focus {
+    outline: none;
+    animation-name: yellow-pulse;
+    animation-duration: 2000ms;
+    animation-iteration-count: infinite;
+}
+/* input:valid {
+    border-color: hsl(47, 96%, 51%);
+} */
 input:invalid {
     border-color: red;
 }
-/* input:valid {
-    border-color: rgb(255, 208, 0);
-} */
+
+
+@keyframes yellow-pulse {
+    0%, 100% {
+        border-color: initial;
+    }
+    50% {
+        border-color: hsl(47, 96%, 51%);
+    }
+}
