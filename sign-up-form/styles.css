@@ -36,15 +36,19 @@ section.main {
     backdrop-filter: blur(20px);
     background-color: hsla(0, 0%, 0%, 0.15);
     padding: 45px;
+    max-width: 40%;
 }
 #form-content form {
     display: flex;
     flex-direction: column;
+    padding: 0 40px;
 }
 
-#form-content .questions {
+#form-content ul {
     display: flex;
-    gap: 40px;
+    flex-wrap: wrap;
+    gap: 20px 0;
+    justify-content: space-between;
 }
 
 .questions li {
@@ -66,12 +70,18 @@ input:focus {
     animation-duration: 2000ms;
     animation-iteration-count: infinite;
 }
+input.is-valid {
+    border-color: hsl(47, 96%, 51%);
+}
+input:not(.is-valid) {
+    border-color: red;
+}
+input:placeholder-shown {
+    border-color: black;
+}
 /* input:valid {
     border-color: hsl(47, 96%, 51%);
 } */
-input:invalid {
-    border-color: red;
-}
 
 
 @keyframes yellow-pulse {
