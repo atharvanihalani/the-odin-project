@@ -10,41 +10,58 @@
 <body>
     <section class="main">
         <figure id="logo-stamp">
-            <img src="./img/logo.png" alt="brockhampton logo"> 
+            <a href="http://brckhmptn.com">
+                <img src="./img/yellow-logo.png" alt="brockhampton logo"> 
+            </a>
         </figure>
-        
+
         <div id="form-content">
             <form action="nowhere.in" method="post">
+                <h1>
+                    Enter Backstage
+                </h1>
                 <div class="questions">
                     <ul>
                         <li>
-                            <label for="name">Name: </label>
+                            <label for="name">Name: *</label>
                             <br>
                             <input type="text" name="name" id="name" placeholder=" " required>
                         </li>
                         <li>
-                            <label for="email">Email: </label>
+                            <label for="email">Email: *</label>
                             <br>
                             <input type="email" name="email" id="email" placeholder=" " required>
                         </li>
                         <li>
-                            <label for="password">Password: </label>
+                            <label for="password">Password: *</label>
                             <br>
                             <input type="password" name="password" id="password" placeholder=" " required>
                         </li>
                         <li>
-                            <label for="password-check">Confirm Password: </label>
+                            <label for="password-check">Confirm Password: *</label>
                             <br>
                             <input type="password" name="password-check" id="password-check" placeholder=" " required>
                         </li>
                         <li>
-                            <label for="fav-album">Favorite Album: </label>
+                            <label for="fav-album">Favorite Album: *</label>
                             <br>
-                            <input type="text" name="fav-album" id="fav-album" placeholder=" " required>
+                            <select name="fav-album" id="fav-album" required>
+                                <option value="" disabled selected hidden></option>
+                                <option value="AAT">ALL-AMERICAN TRASH</option>
+                                <option value="SAT 1">SATURATION</option>
+                                <option value="SAT 2">SATURATION II</option>
+                                <option value="SAT 3">SATURATION III</option>
+                                <option value="iridescence">iridescence</option>
+                                <option value="ginger">GINGER</option>
+                                <option value="roadrunner">ROADRUNNER</option>
+                                <option value="the family">The Family</option>
+                                <option value="TM">TM</option>
+                            </select>
+                            <!-- <input type="text" name="fav-album" id="fav-album" placeholder=" " required> -->
                         </li>
                     </ul>
                 </div>
-                <button type="submit">Submit</button>
+                <button type="submit" disabled>Submit</button>
             </form>
         </div>
     </section>

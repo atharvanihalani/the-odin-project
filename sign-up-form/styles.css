@@ -32,23 +32,34 @@ section.main {
 }
 
 #form-content {
-    border: 2px solid black;
+    border: 8px double hsl(214, 9%, 28%);
+    border-radius: 4px;
     backdrop-filter: blur(20px);
     background-color: hsla(0, 0%, 0%, 0.15);
     padding: 45px;
     max-width: 40%;
 }
+#form-content h1 {
+    color: hsl(47, 100%, 50%);
+    font-size: 44px;
+    margin: 16px 0 8px 0;
+}
 #form-content form {
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding: 0 40px;
 }
-
 #form-content ul {
     display: flex;
     flex-wrap: wrap;
     gap: 20px 0;
     justify-content: space-between;
+}
+#form-content button {
+    font-size: 22px;
+    padding: 8px 20px;
+    width: fit-content;
 }
 
 .questions li {
@@ -62,33 +73,49 @@ section.main {
     font-size: 20px;
     padding: 4px;
     border-style: solid;
+    border-width: 3px;
+    border-radius: 2px;
 }
+.questions select {
+    font-size: 17px;
+    padding: 4px;
+    border: 3px solid rgb(37, 40, 59);
+    border-radius: 2px;
+}
+
 
 input:focus {
     outline: none;
     animation-name: yellow-pulse;
-    animation-duration: 2000ms;
+    animation-duration: 1400ms;
+    animation-iteration-count: infinite;
+}
+select:focus {
+    outline: none;
+    animation-name: yellow-pulse;
+    animation-duration: 1400ms;
     animation-iteration-count: infinite;
 }
 input.is-valid {
-    border-color: hsl(47, 96%, 51%);
+    border-color: hsl(47, 100%, 50%);
 }
 input:not(.is-valid) {
     border-color: red;
 }
 input:placeholder-shown {
-    border-color: black;
+    border-color: rgb(37, 40, 59);
 }
-/* input:valid {
-    border-color: hsl(47, 96%, 51%);
-} */
+
+
+
+
 
 
 @keyframes yellow-pulse {
     0%, 100% {
-        border-color: initial;
+        border-color: rgb(37, 40, 59)
     }
-    50% {
-        border-color: hsl(47, 96%, 51%);
+    40%, 60% {
+        border-color: hsl(47, 100%, 50%);
     }
 }
