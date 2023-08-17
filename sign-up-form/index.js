@@ -17,9 +17,6 @@ let checkName = function() {
         nameField.classList.add("is-valid");
     } else {
         nameField.classList.remove("is-valid");
-        console.log("p1 chekc name");
-        nameField.style.setProperty('--name-error-msg', "Enter your name");
-        console.log("name chekc p2");
     }
     enableSubmit();
 }
@@ -62,8 +59,15 @@ let enableSubmit = function() {
         passwordField.classList.contains("is-valid") &&
         favAlbumField.classList.contains("is-valid")) {
             submitButton.disabled = false;
+            
+            let logoSvgObj = document.getElementById("logo");
+            let testDoc = logoSvgObj.contentDocument;
+            console.log(`test doc: ${testDoc}`);
+            
+            let gElt = logoSvgObj.contentDocument.getElementById('myGroup');
+            gElt.setAttribute('fill', '#ffc800');
+            gElt.setAttribute('filter', 'url(#glow)');
         } else {
-            console.log("disabled");
-            submitButton.classList.disabled = true;
+            submitButton.disabled = true;
         }
 }

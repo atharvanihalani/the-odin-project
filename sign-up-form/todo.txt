@@ -1,8 +1,5 @@
 Layout
-- background fuzzy image (vibe – enter da backstage)
-    - subtle border effects?
 - submit button
-    - button appears grey-ed ('yellow-ed'?) out if all entries not filled up; saturated color when valid
     - crackly energy effect on button hover
     - if valid entries, bright flash of white light + slowly fade to confirmation screen
 

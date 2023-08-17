@@ -17,7 +17,7 @@ ul {
     top: 40px;
     z-index: 1;
 }
-#logo-stamp img {
+#logo-stamp object {
     width: 80px;
 }
 
@@ -116,6 +116,6 @@ input:placeholder-shown {
         border-color: rgb(37, 40, 59)
     }
     40%, 60% {
-        border-color: hsl(47, 100%, 50%);
+        border-color: rgb(255, 200, 0);
     }
 }
