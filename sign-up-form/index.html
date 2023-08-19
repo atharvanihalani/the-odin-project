@@ -23,41 +23,45 @@
                 <div class="questions">
                     <ul>
                         <li>
-                            <label for="name">Name: *</label>
-                            <br>
-                            <input type="text" name="name" id="name" placeholder=" " required>
+                            <div class="name" data-after-name="">
+                                <label for="name">Name: *</label>
+                                <input type="text" name="name" id="name" placeholder=" " required>
+                            </div>
                         </li>
                         <li>
-                            <label for="email">Email: *</label>
-                            <br>
-                            <input type="email" name="email" id="email" placeholder=" " required>
+                            <div class="email" data-after-email="">
+                                <label for="email">Email: *</label>
+                                <input type="email" name="email" id="email" placeholder=" " required>
+                            </div>
                         </li>
                         <li>
-                            <label for="password">Password: *</label>
-                            <br>
-                            <input type="password" name="password" id="password" placeholder=" " required>
+                            <div class="password" data-after-pw="">
+                                <label for="password">Password: *</label>
+                                <input type="password" name="password" id="password" placeholder=" " required>
+                            </div>
                         </li>
                         <li>
-                            <label for="password-check">Confirm Password: *</label>
-                            <br>
-                            <input type="password" name="password-check" id="password-check" placeholder=" " required>
+                            <div class="password-check" data-after-pwcheck="">
+                                <label for="password-check">Confirm Password: *</label>
+                                <input type="password" name="password-check" id="password-check" placeholder=" " required>
+                            </div>
                         </li>
                         <li>
-                            <label for="fav-album">Favorite Album: *</label>
-                            <br>
-                            <select name="fav-album" id="fav-album" required>
-                                <option value="" disabled selected hidden></option>
-                                <option value="AAT">ALL-AMERICAN TRASH</option>
-                                <option value="SAT 1">SATURATION</option>
-                                <option value="SAT 2">SATURATION II</option>
-                                <option value="SAT 3">SATURATION III</option>
-                                <option value="iridescence">iridescence</option>
-                                <option value="ginger">GINGER</option>
-                                <option value="roadrunner">ROADRUNNER</option>
-                                <option value="the family">The Family</option>
-                                <option value="TM">TM</option>
-                            </select>
-                            <!-- <input type="text" name="fav-album" id="fav-album" placeholder=" " required> -->
+                            <div class="fav-album" data-after-favalbum="">
+                                <label for="fav-album">Favorite Album: *</label>
+                                <select name="fav-album" id="fav-album" required>
+                                    <option value=" " disabled selected hidden> </option>
+                                    <option value="AAT">ALL-AMERICAN TRASH</option>
+                                    <option value="SAT 1">SATURATION</option>
+                                    <option value="SAT 2">SATURATION II</option>
+                                    <option value="SAT 3">SATURATION III</option>
+                                    <option value="iridescence">iridescence</option>
+                                    <option value="ginger">GINGER</option>
+                                    <option value="roadrunner">ROADRUNNER</option>
+                                    <option value="the family">The Family</option>
+                                    <option value="TM">TM</option>
+                                </select>
+                            </div>
                         </li>
                     </ul>
                 </div>
