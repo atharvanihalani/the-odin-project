@@ -5,7 +5,6 @@ body {
     height: 100vh;
     background-position: center;
 }
-
 ul {
     list-style: none;
     padding: 0;
@@ -147,7 +146,14 @@ button:not(:disabled):hover {
 }
 
 
-
+@keyframes yellow-pulse {
+    0%, 100% {
+        border-color: hsl(232, 23%, 19%)
+    }
+    40%, 60% {
+        border-color: hsl(47, 100%, 50%);
+    }
+}
 @keyframes button-hover {
     from {
         background-color: hsl(232, 23%, 19%);
@@ -158,14 +164,5 @@ button:not(:disabled):hover {
         background-color: hsl(47, 100%, 58%);
         font-size: 26px;
         color: black;        
-    }
-}
-
-@keyframes yellow-pulse {
-    0%, 100% {
-        border-color: hsl(232, 23%, 19%)
-    }
-    40%, 60% {
-        border-color: hsl(47, 100%, 50%);
     }
 }

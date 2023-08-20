@@ -3,13 +3,21 @@ const emailField = document.getElementById("email");
 const passwordField = document.getElementById("password");
 const passwordCheckField = document.getElementById("password-check");
 const favAlbumField = document.getElementById("fav-album");
-const submitButton = document.querySelector('[type="submit"]');
+const submitButton = document.querySelector('[type="button"]');
 
-nameField.addEventListener("change", e => checkName());
-emailField.addEventListener("change", e => checkEmail());
-passwordField.addEventListener("change", e => checkPassword());
-passwordCheckField.addEventListener("change", e => checkPassword());
-favAlbumField.addEventListener("change", e => checkFavAlbum());
+nameField.addEventListener("change", checkName);
+emailField.addEventListener("change", checkEmail);
+passwordField.addEventListener("change", checkPassword);
+passwordCheckField.addEventListener("change", checkPassword);
+favAlbumField.addEventListener("change", checkFavAlbum);
+
+// reverses the CSS animation when mouse leaves the button
+submitButton.addEventListener("mouseout", e => {
+    submitButton.style.animation = "button-hover 2s reverse";
+    submitButton.addEventListener('animationend', function() {
+        submitButton.style.animation = '';
+    }, { once: true });
+});
 submitButton.addEventListener("mouseenter", e => {
     const computedStyle = window.getComputedStyle(submitButton);
     const playState = computedStyle.getPropertyValue('animation-play-state');
@@ -17,15 +25,13 @@ submitButton.addEventListener("mouseenter", e => {
         submitButton.style.animation = '';
     }
 })
-submitButton.addEventListener("mouseout", e => {
-    submitButton.style.animation = "button-hover 2s reverse";
-    submitButton.addEventListener('animationend', function() {
-        submitButton.style.animation = '';
-    }, { once: true });
-});
+
 
 const nameRegex = /[a-z]+(\s[a-z]+)?/;
-let checkName = function() {
+/**
+ * Client side validation – checks that the user has entered a valid name
+ */
+function checkName() {
     if (nameRegex.test(nameField.value.toLowerCase())) {
         nameField.classList.add("is-valid");
         nameField.parentElement.setAttribute("data-after-name", "");
@@ -37,7 +43,10 @@ let checkName = function() {
 }
 
 const emailRegex = /[a-z0-9_.\-]+@[a-z1-9\-]+\.[a-z1-9\-]{2,}/
-let checkEmail = function() {
+/**
+ * Checks whether the user has entered a valid email address
+ */
+function checkEmail() {
     if (emailRegex.test(emailField.value.toLowerCase())) {
         emailField.classList.add("is-valid");
         emailField.parentElement.setAttribute("data-after-email", "");
@@ -49,7 +58,11 @@ let checkEmail = function() {
 }
 
 const passwordRegex = /^(?=.*[^a-zA-Z0-9\s])(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).+$/
-let checkPassword = function() {
+/**
+ * Checks a) whether the user's password is strong, and b) whether they've
+ * reconfirmed their password correctly
+ */
+function checkPassword() {
     if (!passwordRegex.test(passwordField.value)) {
         console.log("weak passwrod")
         passwordField.parentElement.setAttribute("data-after-pw", "please strengthen your password");
@@ -67,7 +80,11 @@ let checkPassword = function() {
     enableSubmit();
 }
 
-let checkFavAlbum = function() {
+/**
+ * Checks whether the user has good taste in music (ie. their fav album
+ * is from the sat trilogy)
+ */
+function checkFavAlbum() {
     favAlbumField.style.borderWidth = '3px';
     if (favAlbumField.value.includes("SAT")) {
         favAlbumField.classList.add("is-valid");
@@ -79,39 +96,66 @@ let checkFavAlbum = function() {
     enableSubmit();
 }
 
+/**
+ * Checks whether the submit button should be enabled (ie. if
+ * all fields are valid)
+ */
 let enableSubmit = function() {
-    if (nameField.classList.contains("is-valid") &&
-        emailField.classList.contains("is-valid") &&
-        passwordField.classList.contains("is-valid") &&
-        favAlbumField.classList.contains("is-valid")) {
-            submitButton.disabled = false;
-            
-            let logoSvgObj = document.getElementById("logo");
-            let testDoc = logoSvgObj.contentDocument;
-            console.log(`test doc: ${testDoc}`);
-
-            const styleElement = document.createElementNS("http://www.w3.org/2000/svg", "style");
-            styleElement.textContent = `
-                @keyframes flicker {
-                    0%, 9%, 20%, 34%, 55%, 74% {
-                        fill: #000000;
-                    }
-                    10%, 19%, 35%, 54%, 75%, 100% {
-                        fill: #ffc800;
-                    }
-                }
-
-                g {
-                    animation: flicker 3s;
-                }
-            `;
-
-            svgDocument.querySelector('svg').appendChild(styleElement);
-            let gElt = logoSvgObj.contentDocument.getElementById('myGroup');
-            // gElt.setAttribute('fill', '#ffc800');
-            gElt.setAttribute('filter', 'url(#glow)');
-        } else {
-            submitButton.disabled = true;
-        }
+    let allValid = nameField.classList.contains("is-valid") &&
+                    emailField.classList.contains("is-valid") &&
+                    passwordField.classList.contains("is-valid") &&
+                    favAlbumField.classList.contains("is-valid");
+    if (allValid) {
+        if (submitButton.disabled) switchLogoOn();
+        submitButton.disabled = false;
+    } else {
+        if (!submitButton.disabled) switchLogoOff();
+        submitButton.disabled = true;
+    }
 }
 
+/**
+ * Animates the logo if all inputs are valid – making it
+ * flicker, and 'switch on'
+ */
+function switchLogoOn() {
+    let logoSvgObj = document.getElementById("logo");
+    let testDoc = logoSvgObj.contentDocument;
+
+    const styleElement = document.createElementNS("http://www.w3.org/2000/svg", "style");
+    styleElement.textContent = `
+        @keyframes flicker {
+            0%, 14%, 40%, 54%, 65%, 100% {
+                fill: #000000;
+            }
+            15%, 39%, 55%, 64% {
+                fill: #ffc800;
+            }
+        }
+
+        g {
+            animation: flicker 1.4s;
+        }
+    `;
+
+    testDoc.querySelector('svg').appendChild(styleElement);
+    let gElt = logoSvgObj.contentDocument.getElementById('myGroup');
+    gElt.addEventListener('animationend', function(e) {
+        gElt.setAttribute('filter', 'url(#glow)');
+        gElt.setAttribute('fill', '#ffc800');
+    });
+}
+
+/**
+ * Resets the animation and 'switches the logo off'
+ */
+function switchLogoOff() {
+    let logoSvgObj = document.getElementById("logo");
+    let testDoc = logoSvgObj.contentDocument;
+    console.log(`last child: ${testDoc.querySelector('svg').lastElementChild}`);
+    testDoc.querySelector('svg').lastElementChild.remove();
+
+    let gElt = logoSvgObj.contentDocument.getElementById('myGroup');
+    gElt.setAttribute('filter', '');
+    gElt.setAttribute('fill', '#000000');
+}
